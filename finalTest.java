@@ -21,9 +21,7 @@ NoteBook notebook5 = new NoteBook
 4 - Цвет
 
 Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
-
 Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
-
 Класс сделать в отдельном файле
 
 приветствие
@@ -32,10 +30,13 @@ NoteBook notebook5 = new NoteBook
 вывод подходящих
  */
 
+//  Задание выполнил Михаил Бовшин
+
 public class finalTest {
 
     public static void main(String[] args) {
         Set<NoteBook> set = createNotebookSet();
+        System.out.println("Welcome! This programm has a set of notebooks, and you can filter them by one of their properties.\n");
         initialSotr(set);
     }
 
@@ -55,15 +56,15 @@ public class finalTest {
     }
 
     static void initialSotr (Set<NoteBook> set) {
-        System.out.println("Choose a parameter to sort notebooks by: \n1 for memory \n2 for HD, \n3 for OS \n4 for color");
+        System.out.println("Choose a parameter to sort notebooks by: \n1 for memory \n2 for HD \n3 for OS \n4 for color");
         Scanner sc = new Scanner(System.in);
         int parameter = sc.nextInt();
         switch (parameter) {
             case 1:
-                
+                sortByMemory(set);
                 break;
             case 2:
-                
+                sortByHD(set);
                 break;
             case 3:
                 sortByOS(set);
@@ -71,11 +72,35 @@ public class finalTest {
             case 4:
                 sortByColor(set);
                 break;
-
             default:
                 System.out.println("You chose an incorrect number");
                 break;
         }
+        sc.close();
+    }
+
+    static void sortByMemory (Set<NoteBook> set) {
+        System.out.println("This programm will show notebooks, that have memory within requested range\nEnter the minimum memory value (GB):");
+        Scanner sc = new Scanner(System.in);
+        int min = sc.nextInt();
+        System.out.println("Now enter the maximum memory value (GB):");
+        int max = sc.nextInt();
+        for (NoteBook item : set) {
+            if (item.getMemory() >= min & item.getMemory() <= max) System.out.println(item);
+        }
+        sc.close();
+    }
+
+    static void sortByHD (Set<NoteBook> set) {
+        System.out.println("This programm will show notebooks, that have HD within requested range\nEnter the minimum HD value (GB):");
+        Scanner sc = new Scanner(System.in);
+        int min = sc.nextInt();
+        System.out.println("Now enter the maximum HD value (GB):");
+        int max = sc.nextInt();
+        for (NoteBook item : set) {
+            if (item.getHd() >= min & item.getHd() <= max) System.out.println(item);
+        }
+        sc.close();
     }
     
     static void sortByColor (Set<NoteBook> set) {
@@ -102,6 +127,7 @@ public class finalTest {
                 System.out.println("You chose an incorrect number");
                 break;
         }
+        sc.close();
     }
 
     static void sortByOS (Set<NoteBook> set) {
@@ -123,6 +149,7 @@ public class finalTest {
                 System.out.println("You chose an incorrect number");
                 break;
         }
+        sc.close();
     }
 
 }

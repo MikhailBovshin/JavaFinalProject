@@ -13,22 +13,6 @@ public class NoteBook {
         this.color = color;
     }
 
-    // public void setMemory(int memory) {
-    //     this.memory = memory;
-    // }
-
-    // public void setHd(int hd) {
-    //     this.hd = hd;
-    // }
-
-    // public void setOs(String os) {
-    //     this.os = os;
-    // }
-
-    // public void setColor(String color) {
-    //     this.color = color;
-    // }
-
     public int getMemory() {
         return memory;
     }
