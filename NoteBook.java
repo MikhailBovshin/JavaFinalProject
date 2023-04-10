@@ -27,4 +27,20 @@ public class NoteBook {
     //     this.color = color;
     // }
 
+    public int getMemory() {
+        return memory;
+    }
+
+    public int getHd() {
+        return hd;
+    }
+
+    public String getOs() {
+        return os;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
 }
