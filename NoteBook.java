@@ -1,10 +1,12 @@
 public class NoteBook {
+    private String name;
     private int memory;
     private int hd;
     private String os;
     private String color;
 
-    public NoteBook (int memory, int hd, String os, String color) {
+    public NoteBook (String name, int memory, int hd, String os, String color) {
+        this.name = name;
         this.memory = memory;
         this.hd = hd;
         this.os = os;
@@ -41,6 +43,11 @@ public class NoteBook {
 
     public String getColor() {
         return color;
+    }
+
+    @Override
+    public String toString() {
+        return "\n" + name + " | Memory: " + memory + "  HD: " + hd + "  OS: " + os + "  Color: " + color;
     }
 
 }
